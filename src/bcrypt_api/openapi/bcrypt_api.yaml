@@ -42,7 +42,7 @@ paths:
   /check-password:
     post:
       summary: ''
-      operationId: apis.bcrypt.check_password
+      operationId: api.bcrypt.check_password
       responses:
         '200':
           description: OK

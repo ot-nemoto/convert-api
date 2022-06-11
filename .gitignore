@@ -1,2 +1,4 @@
 .spectral.json
 .stoplight/
+__pycache__/
+.python-version

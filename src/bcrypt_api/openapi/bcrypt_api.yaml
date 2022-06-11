@@ -1,18 +1,4 @@
 openapi: 3.0.0
-info:
-  title: openapi
-  version: '1.0'
-  summary: Bcrypt API
-  description: bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
-  contact:
-    name: ot-nemoto
-    email: nemoto@opentone.co.jp
-    url: 'https://github.com/ot-nemoto/bcrypt-api/issues'
-  license:
-    name: Apache 2.0
-    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
-servers:
-  - url: 'http://localhost:3000/api/v1/bcrypt'
 paths:
   /generate-hash:
     post:
@@ -93,3 +79,16 @@ paths:
 components:
   schemas: {}
   securitySchemes: {}
+info:
+  title: Bcrypt API
+  description: bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
+  version: '1.0'
+  contact:
+    name: ot-nemoto
+    url: 'https://github.com/ot-nemoto/bcrypt-api/issues'
+    email: nemoto@opentone.co.jp
+  license:
+    name: Apache 2.0
+    url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'http://localhost:3000/api/v1/bcrypt'

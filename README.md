@@ -21,10 +21,10 @@ pip install -r requirements.txt
 python src/bcrypt_api/app.py
 ```
 
-*by wsgi*
+*by gunicorn*
 
 ```sh
-uwsgi --http :8080 -w app -p 1 --callable app --chdir src/bcrypt_api/
+gunicorn app:app --chdir src/bcrypt_api/
 ```
 
 ## API Documents

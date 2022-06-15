@@ -1,1 +1,1 @@
-web: gunicorn src/bcrypt_api/app:app --log-file=-
+web: gunicorn src.bcrypt_api.app:app --log-file=-

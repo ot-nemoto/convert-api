@@ -2,7 +2,7 @@ openapi: 3.0.0
 paths:
   /generate-hash:
     post:
-      summary: Create New User
+      summary: Generate Hash
       operationId: api.bcrypt.generate_hash
       responses:
         '200':
@@ -33,6 +33,12 @@ paths:
                   format: int32
                   minimum: 4
                   maximum: 10
+                version:
+                  type: string
+                  enum:
+                    - 2a
+                    - 2b
+                  default: 2a
               required:
                 - password
             examples: {}
@@ -41,7 +47,7 @@ paths:
     parameters: []
   /check-password:
     post:
-      summary: ''
+      summary: Check Password
       operationId: api.bcrypt.check_password
       responses:
         '200':

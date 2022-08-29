@@ -18,18 +18,14 @@ pip install -r requirements.txt
 ```
 
 ```sh
-python src/bcrypt_api/app.py
+python src/convert_api/app.py
 ```
 
 *by gunicorn*
 
 ```sh
-gunicorn app:app --chdir src/bcrypt_api/
+gunicorn app:app --chdir src/convert_api/
 ```
-
-## API Documents
-
-- https://ot-nemoto.stoplight.io/docs/bcrypt-api/32f2fd3faf525-bcrypt-api
 
 ## Usage
 

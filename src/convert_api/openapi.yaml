@@ -124,3 +124,8 @@ servers:
   - url: 'http://localhost:3000/api/v1'
 tags:
   - name: bcrypt
+    description: bcrypt generate-hash / check-password
+  - name: html
+    description: html escape / unescape
+  - name: url
+    description: url encode / decode

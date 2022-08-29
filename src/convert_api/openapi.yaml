@@ -96,13 +96,17 @@ paths:
               required:
                 - hash
                 - password
-            examples: {}
+            examples:
+              example:
+                value:
+                  hash: $2a$10$UrC0NWxz.FHzGLrIp5PMcesTzs9YD6qSPw8yy4ZupM3YeoEswt4sq
+                  password: Passw0rd
 components:
   schemas: {}
   securitySchemes: {}
 info:
   title: Convert API
-  description: bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
+  description: 変換API
   version: '1.0'
   contact:
     name: ot-nemoto
@@ -112,4 +116,4 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'http://localhost:3000/api/v1/bcrypt'
+  - url: 'http://localhost:3000/api/v1/convert'

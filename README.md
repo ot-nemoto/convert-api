@@ -32,19 +32,19 @@ gunicorn app:app --chdir src/convert_api/
 ### パスワードハッシュ化
 
 ```sh
-curl -XPOST https://n-bcrypt.herokuapp.com/api/v1/bcrypt/generate-hash \
+curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/generate-hash \
     -H 'Content-Type: application/json' \
-    -d '{"password":"password","cost":10,"version":"2a"}'
+    -d '{"password":"Passw0rd","cost":10,"version":"2a"}'
 ```
 
 ### パスワードとパスワードハッシュのチェック
 
 ```sh
-curl -XPOST https://n-bcrypt.herokuapp.com/api/v1/bcrypt/check-password \
+curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/check-password \
     -H 'Content-Type: application/json' \
-    -d '{"password":"password","hash":"$2b$10$0/7FLwBXivfKg3J5WbdvzesCEBkghFg0R8EEmPsUKkYNj3tY/U/ei"}'
+    -d '{"password":"Passw0rd","hash":"$2a$10$UrC0NWxz.FHzGLrIp5PMcesTzs9YD6qSPw8yy4ZupM3YeoEswt4sq"}'
 ```
 
 ### Swagger
 
-- https://n-bcrypt.herokuapp.com/api/v1/bcrypt/ui/
+- https://ot-nemoto-convert-api.onrender.com/api/v1/ui/

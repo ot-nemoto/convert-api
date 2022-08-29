@@ -1,6 +1,6 @@
-# bcrypt-api
+# convert-api
 
-bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
+変換API
 
 ## Environment
 
@@ -29,7 +29,9 @@ gunicorn app:app --chdir src/convert_api/
 
 ## Usage
 
-### パスワードハッシュ化
+### bcrypt
+
+*Generate Hash*
 
 ```sh
 curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/generate-hash \
@@ -37,7 +39,7 @@ curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/generate-ha
     -d '{"password":"Passw0rd","cost":10,"version":"2a"}'
 ```
 
-### パスワードとパスワードハッシュのチェック
+*Check Password*
 
 ```sh
 curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/check-password \
@@ -45,6 +47,6 @@ curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/check-passw
     -d '{"password":"Passw0rd","hash":"$2a$10$UrC0NWxz.FHzGLrIp5PMcesTzs9YD6qSPw8yy4ZupM3YeoEswt4sq"}'
 ```
 
-### Swagger
+## Swagger
 
 - https://ot-nemoto-convert-api.onrender.com/api/v1/ui/

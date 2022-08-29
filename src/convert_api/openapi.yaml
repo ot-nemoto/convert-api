@@ -1,6 +1,6 @@
 openapi: 3.0.0
 paths:
-  /generate-hash:
+  /bcrypt/generate-hash:
     post:
       summary: Generate Hash
       operationId: api.bcrypt.generate_hash
@@ -14,8 +14,10 @@ paths:
                 properties:
                   password:
                     type: string
+                    description: パスワード
                   hash:
                     type: string
+                    description: ハッシュ化したパスワード
                 required:
                   - password
                   - hash
@@ -27,25 +29,35 @@ paths:
               properties:
                 password:
                   type: string
+                  description: パスワード
                 cost:
                   type: integer
                   default: 10
                   format: int32
                   minimum: 4
                   maximum: 10
+                  description: ストレッチング回数
                 version:
                   type: string
                   enum:
                     - 2a
                     - 2b
                   default: 2a
+                  description: bcryptアルゴリズム
               required:
                 - password
-            examples: {}
+            examples:
+              example:
+                value:
+                  password: Passw0rd
+                  cost: 10
+                  version: 2a
         description: ''
-      description: Generate Hash.
+      description: パスワードハッシュ化を行うAPI
+      tags:
+        - bcrypt
     parameters: []
-  /check-password:
+  /bcrypt/check-password:
     post:
       summary: Check Password
       operationId: api.bcrypt.check_password
@@ -59,15 +71,18 @@ paths:
                 properties:
                   result:
                     type: boolean
+                    description: パスワードとハッシュ化したパスワードのチェック結果
                   password:
                     type: string
+                    description: パスワード
                   hash:
                     type: string
+                    description: ハッシュ化したパスワード
                 required:
                   - result
                   - password
                   - hash
-      description: Check Password.
+      description: パスワードとパスワードハッシュのチェックを行うAPI
       requestBody:
         content:
           application/json:
@@ -76,18 +91,27 @@ paths:
               properties:
                 hash:
                   type: string
+                  description: ハッシュ化したパスワード
                 password:
                   type: string
+                  description: パスワード
               required:
                 - hash
                 - password
-            examples: {}
+            examples:
+              example:
+                value:
+                  hash: $2a$10$UrC0NWxz.FHzGLrIp5PMcesTzs9YD6qSPw8yy4ZupM3YeoEswt4sq
+                  password: Passw0rd
+      tags:
+        - bcrypt
+    parameters: []
 components:
   schemas: {}
   securitySchemes: {}
 info:
-  title: Bcrypt API
-  description: bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
+  title: Convert API
+  description: 変換API
   version: '1.0'
   contact:
     name: ot-nemoto
@@ -97,4 +121,6 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'http://localhost:3000/api/v1/bcrypt'
+  - url: 'http://localhost:3000/api/v1'
+tags:
+  - name: bcrypt

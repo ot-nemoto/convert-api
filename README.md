@@ -1,6 +1,6 @@
-# bcrypt-api
+# convert-api
 
-bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
+変換API
 
 ## Environment
 
@@ -18,37 +18,35 @@ pip install -r requirements.txt
 ```
 
 ```sh
-python src/bcrypt_api/app.py
+python src/convert_api/app.py
 ```
 
 *by gunicorn*
 
 ```sh
-gunicorn app:app --chdir src/bcrypt_api/
+gunicorn app:app --chdir src/convert_api/
 ```
-
-## API Documents
-
-- https://ot-nemoto.stoplight.io/docs/bcrypt-api/32f2fd3faf525-bcrypt-api
 
 ## Usage
 
-### パスワードハッシュ化
+### bcrypt
+
+*Generate Hash*
 
 ```sh
-curl -XPOST https://n-bcrypt.herokuapp.com/api/v1/bcrypt/generate-hash \
+curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/generate-hash \
     -H 'Content-Type: application/json' \
-    -d '{"password":"password","cost":10,"version":"2a"}'
+    -d '{"password":"Passw0rd","cost":10,"version":"2a"}'
 ```
 
-### パスワードとパスワードハッシュのチェック
+*Check Password*
 
 ```sh
-curl -XPOST https://n-bcrypt.herokuapp.com/api/v1/bcrypt/check-password \
+curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/check-password \
     -H 'Content-Type: application/json' \
-    -d '{"password":"password","hash":"$2b$10$0/7FLwBXivfKg3J5WbdvzesCEBkghFg0R8EEmPsUKkYNj3tY/U/ei"}'
+    -d '{"password":"Passw0rd","hash":"$2a$10$UrC0NWxz.FHzGLrIp5PMcesTzs9YD6qSPw8yy4ZupM3YeoEswt4sq"}'
 ```
 
-### Swagger
+## Swagger
 
-- https://n-bcrypt.herokuapp.com/api/v1/bcrypt/ui/
+- https://ot-nemoto-convert-api.onrender.com/api/v1/ui/

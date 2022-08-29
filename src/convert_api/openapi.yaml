@@ -14,8 +14,10 @@ paths:
                 properties:
                   password:
                     type: string
+                    description: パスワード
                   hash:
                     type: string
+                    description: ハッシュ化したパスワード
                 required:
                   - password
                   - hash
@@ -27,23 +29,31 @@ paths:
               properties:
                 password:
                   type: string
+                  description: パスワード
                 cost:
                   type: integer
                   default: 10
                   format: int32
                   minimum: 4
                   maximum: 10
+                  description: ストレッチング回数
                 version:
                   type: string
                   enum:
                     - 2a
                     - 2b
                   default: 2a
+                  description: bcryptアルゴリズム
               required:
                 - password
-            examples: {}
+            examples:
+              example:
+                value:
+                  password: Passw0rd
+                  cost: 10
+                  version: 2a
         description: ''
-      description: Generate Hash.
+      description: パスワードハッシュ化を行うAPI
     parameters: []
   /check-password:
     post:
@@ -59,15 +69,18 @@ paths:
                 properties:
                   result:
                     type: boolean
+                    description: パスワードとハッシュ化したパスワードのチェック結果
                   password:
                     type: string
+                    description: パスワード
                   hash:
                     type: string
+                    description: ハッシュ化したパスワード
                 required:
                   - result
                   - password
                   - hash
-      description: Check Password.
+      description: パスワードとパスワードハッシュのチェックを行うAPI
       requestBody:
         content:
           application/json:
@@ -76,8 +89,10 @@ paths:
               properties:
                 hash:
                   type: string
+                  description: ハッシュ化したパスワード
                 password:
                   type: string
+                  description: パスワード
               required:
                 - hash
                 - password
@@ -86,7 +101,7 @@ components:
   schemas: {}
   securitySchemes: {}
 info:
-  title: Bcrypt API
+  title: Convert API
   description: bcryptでパスワードハッシュ化、パスワードとパスワードハッシュのチェックを行うAPI
   version: '1.0'
   contact:

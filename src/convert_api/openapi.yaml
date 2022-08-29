@@ -1,6 +1,6 @@
 openapi: 3.0.0
 paths:
-  /generate-hash:
+  /bcrypt/generate-hash:
     post:
       summary: Generate Hash
       operationId: api.bcrypt.generate_hash
@@ -54,8 +54,10 @@ paths:
                   version: 2a
         description: ''
       description: パスワードハッシュ化を行うAPI
+      tags:
+        - bcrypt
     parameters: []
-  /check-password:
+  /bcrypt/check-password:
     post:
       summary: Check Password
       operationId: api.bcrypt.check_password
@@ -101,6 +103,9 @@ paths:
                 value:
                   hash: $2a$10$UrC0NWxz.FHzGLrIp5PMcesTzs9YD6qSPw8yy4ZupM3YeoEswt4sq
                   password: Passw0rd
+      tags:
+        - bcrypt
+    parameters: []
 components:
   schemas: {}
   securitySchemes: {}
@@ -116,4 +121,6 @@ info:
     name: Apache 2.0
     url: 'https://www.apache.org/licenses/LICENSE-2.0.html'
 servers:
-  - url: 'http://localhost:3000/api/v1/convert'
+  - url: 'http://localhost:3000/api/v1'
+tags:
+  - name: bcrypt

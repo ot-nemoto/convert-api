@@ -189,7 +189,7 @@ info:
   version: '1.0'
   contact:
     name: ot-nemoto
-    url: 'https://github.com/ot-nemoto/bcrypt-api/issues'
+    url: 'https://github.com/ot-nemoto/convert-api/issues'
     email: nemoto@opentone.co.jp
   license:
     name: Apache 2.0

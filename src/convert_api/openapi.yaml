@@ -2,7 +2,7 @@ openapi: 3.0.0
 paths:
   /bcrypt/generate-hash:
     post:
-      summary: Generate Hash
+      summary: Bcrypt Generate Hash
       operationId: api.bcrypt.generate_hash
       responses:
         '200':
@@ -59,7 +59,7 @@ paths:
     parameters: []
   /bcrypt/check-password:
     post:
-      summary: Check Password
+      summary: Bcrypt Check Password
       operationId: api.bcrypt.check_password
       responses:
         '200':
@@ -106,6 +106,80 @@ paths:
       tags:
         - bcrypt
     parameters: []
+  /html/escape:
+    post:
+      summary: Html escape
+      operationId: api.html.escape
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  string:
+                    type: string
+      tags:
+        - html
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+      description: ''' $ " <> を実体参照に置換するAPI'
+  /html/unescape:
+    post:
+      summary: Html unescape
+      operationId: api.html.unescape
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  string:
+                    type: string
+      tags:
+        - html
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+      description: 実体参照を文字列に置換するAPI
+  /url/encode:
+    post:
+      summary: Url encode
+      operationId: api.url.encode
+      responses:
+        '200':
+          description: OK
+      description: 文字列をURLエンコードするAPI
+      tags:
+        - url
+  /url/decode:
+    post:
+      summary: Url decode
+      operationId: api.url.decode
+      responses:
+        '200':
+          description: OK
+      tags:
+        - url
+      description: 文字列をURLデコードするAPI
 components:
   schemas: {}
   securitySchemes: {}

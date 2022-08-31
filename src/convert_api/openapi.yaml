@@ -190,8 +190,10 @@ paths:
                 properties:
                   origin:
                     type: string
+                    description: エンコード前の文字列
                   result:
                     type: string
+                    description: エンコード後の文字列
           headers: {}
       description: 文字列をURLエンコードするAPI
       tags:
@@ -210,8 +212,10 @@ paths:
                 properties:
                   origin:
                     type: string
+                    description: デコード前の文字列
                   result:
                     type: string
+                    description: デコード後の文字列
           headers: {}
       tags:
         - url

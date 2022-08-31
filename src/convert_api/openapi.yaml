@@ -198,6 +198,20 @@ paths:
       description: 文字列をURLエンコードするAPI
       tags:
         - url
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+            examples:
+              example:
+                value:
+                  string: 'http://総務省.jp'
   /url/decode:
     post:
       summary: Url decode
@@ -220,6 +234,20 @@ paths:
       tags:
         - url
       description: 文字列をURLデコードするAPI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+            examples:
+              example:
+                value:
+                  string: http%3A//%E7%B7%8F%E5%8B%99%E7%9C%81.jp
 components:
   schemas: {}
   securitySchemes: {}

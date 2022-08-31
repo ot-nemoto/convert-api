@@ -192,11 +192,7 @@ paths:
                     type: string
                   result:
                     type: string
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: application/json; charset=UTF-8
+          headers: {}
       description: 文字列をURLエンコードするAPI
       tags:
         - url
@@ -216,11 +212,7 @@ paths:
                     type: string
                   result:
                     type: string
-          headers:
-            Content-Type:
-              schema:
-                type: string
-              description: application/json; charset=UTF-8
+          headers: {}
       tags:
         - url
       description: 文字列をURLデコードするAPI

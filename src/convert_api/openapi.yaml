@@ -183,6 +183,20 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                  result:
+                    type: string
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json; charset=UTF-8
       description: 文字列をURLエンコードするAPI
       tags:
         - url
@@ -193,6 +207,20 @@ paths:
       responses:
         '200':
           description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                  result:
+                    type: string
+          headers:
+            Content-Type:
+              schema:
+                type: string
+              description: application/json; charset=UTF-8
       tags:
         - url
       description: 文字列をURLデコードするAPI

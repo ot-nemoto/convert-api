@@ -118,8 +118,12 @@ paths:
               schema:
                 type: object
                 properties:
-                  string:
+                  origin:
                     type: string
+                    description: 置換前の文字列
+                  result:
+                    type: string
+                    description: 置換後の文字列
       tags:
         - html
       requestBody:
@@ -132,7 +136,11 @@ paths:
                   type: string
               required:
                 - string
-      description: ''' $ " <> を実体参照に置換するAPI'
+            examples:
+              example:
+                value:
+                  string: ''' & " < >'
+      description: ''' & " <> を実体参照に置換するAPI'
   /html/unescape:
     post:
       summary: Html unescape
@@ -145,8 +153,12 @@ paths:
               schema:
                 type: object
                 properties:
-                  string:
+                  origin:
                     type: string
+                    description: 置換前の文字列
+                  result:
+                    type: string
+                    description: 置換後の文字列
       tags:
         - html
       requestBody:
@@ -159,6 +171,10 @@ paths:
                   type: string
               required:
                 - string
+            examples:
+              example:
+                value:
+                  string: '&#x27; &amp; &quot; &lt; &gt;'
       description: 実体参照を文字列に置換するAPI
   /url/encode:
     post:

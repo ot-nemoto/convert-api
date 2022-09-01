@@ -1,1 +1,1 @@
-web: gunicorn app:app --chdir src/bcrypt_api/ --log-file=-
+web: gunicorn app:app --log-file=- --chdir=src/convert_api/

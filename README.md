@@ -49,4 +49,10 @@ curl -XPOST https://ot-nemoto-convert-api.onrender.com/api/v1/bcrypt/check-passw
 
 ## Swagger
 
+*master*
+
 - https://ot-nemoto-convert-api.onrender.com/api/v1/ui/
+
+*develop*
+
+- https://ot-nemoto-convert-api.fly.dev/api/v1/ui/

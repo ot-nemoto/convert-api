@@ -2,7 +2,7 @@ openapi: 3.0.0
 paths:
   /bcrypt/generate-hash:
     post:
-      summary: Generate Hash
+      summary: Bcrypt Generate Hash
       operationId: api.bcrypt.generate_hash
       responses:
         '200':
@@ -59,7 +59,7 @@ paths:
     parameters: []
   /bcrypt/check-password:
     post:
-      summary: Check Password
+      summary: Bcrypt Check Password
       operationId: api.bcrypt.check_password
       responses:
         '200':
@@ -106,6 +106,148 @@ paths:
       tags:
         - bcrypt
     parameters: []
+  /html/escape:
+    post:
+      summary: Html escape
+      operationId: api.html.escape
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                    description: 置換前の文字列
+                  result:
+                    type: string
+                    description: 置換後の文字列
+      tags:
+        - html
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+            examples:
+              example:
+                value:
+                  string: ''' & " < >'
+      description: ''' & " <> を実体参照に置換するAPI'
+  /html/unescape:
+    post:
+      summary: Html unescape
+      operationId: api.html.unescape
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                    description: 置換前の文字列
+                  result:
+                    type: string
+                    description: 置換後の文字列
+      tags:
+        - html
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+            examples:
+              example:
+                value:
+                  string: '&#x27; &amp; &quot; &lt; &gt;'
+      description: 実体参照を文字列に置換するAPI
+  /url/encode:
+    post:
+      summary: Url encode
+      operationId: api.url.encode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                    description: エンコード前の文字列
+                  result:
+                    type: string
+                    description: エンコード後の文字列
+          headers: {}
+      description: 文字列をURLエンコードするAPI
+      tags:
+        - url
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+            examples:
+              example:
+                value:
+                  string: 'http://総務省.jp'
+  /url/decode:
+    post:
+      summary: Url decode
+      operationId: api.url.decode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                    description: デコード前の文字列
+                  result:
+                    type: string
+                    description: デコード後の文字列
+          headers: {}
+      tags:
+        - url
+      description: 文字列をURLデコードするAPI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+            examples:
+              example:
+                value:
+                  string: http%3A//%E7%B7%8F%E5%8B%99%E7%9C%81.jp
 components:
   schemas: {}
   securitySchemes: {}
@@ -115,7 +257,7 @@ info:
   version: '1.0'
   contact:
     name: ot-nemoto
-    url: 'https://github.com/ot-nemoto/bcrypt-api/issues'
+    url: 'https://github.com/ot-nemoto/convert-api/issues'
     email: nemoto@opentone.co.jp
   license:
     name: Apache 2.0
@@ -124,3 +266,8 @@ servers:
   - url: 'http://localhost:3000/api/v1'
 tags:
   - name: bcrypt
+    description: bcrypt generate-hash / check-password
+  - name: html
+    description: html escape / unescape
+  - name: url
+    description: url encode / decode

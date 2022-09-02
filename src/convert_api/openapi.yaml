@@ -248,6 +248,68 @@ paths:
               example:
                 value:
                   string: http%3A//%E7%B7%8F%E5%8B%99%E7%9C%81.jp
+  /base64/encode:
+    post:
+      summary: BASE64 encode
+      operationId: api.base64.encode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                    description: エンコード前の文字列
+                  result:
+                    type: string
+                    description: エンコード後の文字列
+      tags:
+        - base64
+      description: 文字列をBASE64エンコードするAPI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
+  /base64/decode:
+    post:
+      summary: BASE64 decode
+      operationId: api.base64.decode
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  origin:
+                    type: string
+                    description: デコード前の文字列
+                  result:
+                    type: string
+                    description: デコード後の文字列
+      tags:
+        - base64
+      description: 文字列をBASE64デコードするAPI
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                string:
+                  type: string
+              required:
+                - string
 components:
   schemas: {}
   securitySchemes: {}
@@ -265,6 +327,8 @@ info:
 servers:
   - url: 'http://localhost:3000/api/v1'
 tags:
+  - name: base64
+    description: base64 encode / decode
   - name: bcrypt
     description: bcrypt generate-hash / check-password
   - name: html

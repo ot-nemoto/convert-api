@@ -279,6 +279,10 @@ paths:
                   type: string
               required:
                 - string
+            examples:
+              example:
+                value:
+                  string: 'http://総務省.jp'
   /base64/decode:
     post:
       summary: BASE64 decode
@@ -310,6 +314,11 @@ paths:
                   type: string
               required:
                 - string
+            examples:
+              example:
+                value:
+                  string: |
+                    aHR0cDovL+e3j+WLmeecgS5qcA==
 components:
   schemas: {}
   securitySchemes: {}

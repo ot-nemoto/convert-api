@@ -1,3 +1,4 @@
 connexion[swagger-ui]
 bcrypt
 gunicorn
+flask_cors
